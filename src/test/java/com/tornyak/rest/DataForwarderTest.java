@@ -4,6 +4,7 @@ import org.glassfish.jersey.logging.LoggingFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Entity;
@@ -26,9 +27,7 @@ public class DataForwarderTest extends JerseyTest {
     }
 
 
-    /**
-     * Test to see that the message "Got it!" is sent in the response.
-     */
+    @Ignore
     @Test
     public void testConfigure() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
@@ -37,6 +36,21 @@ public class DataForwarderTest extends JerseyTest {
 
         Response response = target("configure").request().post(Entity.xml(data));
 
+        assertEquals(200, response.getStatus());
+        assertEquals(new String(data), response.readEntity(String.class));
+    }
+
+    /**
+     * Test production environment
+     */
+    @Ignore
+    @Test
+    public void configureProduction() throws IOException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        Path path = Paths.get(classLoader.getResource("FAP23003_20170309_slimmad.xml").getPath());
+        byte[] data = Files.readAllBytes(path);
+
+        Response response = target("configure").queryParam("environment", "p").request().post(Entity.xml(data));
         assertEquals(200, response.getStatus());
         assertEquals(new String(data), response.readEntity(String.class));
     }

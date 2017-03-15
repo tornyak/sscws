@@ -43,6 +43,58 @@
             <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>sap.com.tc.je.clientlib.impl</groupId>
+            <artifactId>sap.com.tc.je.clientlib.impl</artifactId>
+            <!-- <scope>system</scope> -->
+            <version>1.0</version>
+            <!--<systemPath>${project.basedir}/library/sap.com~tc~je~clientlib~impl.jar</systemPath> -->
+        </dependency>
+        <dependency>
+            <groupId>sap.com.sap.engine.client.lib.default</groupId>
+            <artifactId>sap.com.sap.engine.client.lib.default</artifactId>
+            <!-- <scope>system</scope> -->
+            <version>1.0</version>
+            <!--<systemPath>${project.basedir}/library/sap.com~com.sap.engine.client.lib~default.jar</systemPath> -->
+        </dependency>
+        <dependency>
+            <groupId>sap.com.cdev.fbs.slc.jee.client</groupId>
+            <artifactId>sap.com.cdev.fbs.slc.jee.client</artifactId>
+            <!-- <scope>system</scope> -->
+            <version>1.0</version>
+            <!--<systemPath>${project.basedir}/library/sap.com~cdev~fbs_slc_jee~client.jar</systemPath> -->
+        </dependency>
+        <dependency>
+            <groupId>sap.com.cdev.fbs.slc.base.compile</groupId>
+            <artifactId>sap.com.cdev.fbs.slc.base.compile</artifactId>
+            <!-- <scope>system</scope> -->
+            <version>1.0</version>
+            <!--<systemPath>${project.basedir}/library/sap.com~cdev~fbs_slc_base~compile.jar</systemPath> -->
+        </dependency>
+        <dependency>
+            <groupId>sap.com.tc.logging.default</groupId>
+            <artifactId>sap.com.tc.logging.default</artifactId>
+            <!-- <scope>system</scope> -->
+            <version>1.0</version>
+            <!--<systemPath>${project.basedir}/library/sap.com~_tc~logging~default.jar</systemPath> -->
+        </dependency>
+        <dependency>
+            <groupId>ejb20</groupId>
+            <artifactId>ejb20</artifactId>
+            <!-- <scope>system</scope> -->
+            <version>1.0</version>
+            <!--<systemPath>${project.basedir}/library/ejb20.jar</systemPath> -->
+        </dependency>
+
+        <dependency>
+            <groupId>com.sap.custdev.projects.fbs.slc.ejb-ipc</groupId>
+            <artifactId>com.sap.custdev.projects.fbs.slc.ejb-ipc</artifactId>
+            <version>2.3.20</version>
+            <!-- com.sap.custdev.projects.fbs.slc.ejb-ipc_2.3.20.v20161125-0509.jar -->
+        </dependency>
+
+
     </dependencies>
 
     <build>

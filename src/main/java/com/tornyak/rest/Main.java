@@ -5,13 +5,14 @@ import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 /**
  * Main class.
- *
  */
 public class Main {
 
@@ -34,6 +35,7 @@ public class Main {
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
+     *
      * @return Grizzly HTTP server.
      */
     public static HttpServer startServer() {
@@ -48,10 +50,11 @@ public class Main {
 
     /**
      * Main method.
+     *
      * @param args
      * @throws IOException
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         final HttpServer server = startServer();
         LOGGER.info("SSC WS Started on base URI: " + BASE_URI);
         System.in.read();

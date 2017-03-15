@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jersey-service" />
+        <module name="sscws" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="jersey-service" target="1.8" />
+      <module name="sscws" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

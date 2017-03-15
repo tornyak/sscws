@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -39,5 +40,12 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.jersey.containers:jersey-container-grizzly2-servlet:2.25.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet:2.25.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.grizzly:grizzly-http-servlet:2.3.28" level="project" />
+    <orderEntry type="library" name="Maven: sap.com.tc.je.clientlib.impl:sap.com.tc.je.clientlib.impl:1.0" level="project" />
+    <orderEntry type="library" name="Maven: sap.com.sap.engine.client.lib.default:sap.com.sap.engine.client.lib.default:1.0" level="project" />
+    <orderEntry type="library" name="Maven: sap.com.cdev.fbs.slc.jee.client:sap.com.cdev.fbs.slc.jee.client:1.0" level="project" />
+    <orderEntry type="library" name="Maven: sap.com.cdev.fbs.slc.base.compile:sap.com.cdev.fbs.slc.base.compile:1.0" level="project" />
+    <orderEntry type="library" name="Maven: sap.com.tc.logging.default:sap.com.tc.logging.default:1.0" level="project" />
+    <orderEntry type="library" name="Maven: ejb20:ejb20:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.sap.custdev.projects.fbs.slc.ejb-ipc:com.sap.custdev.projects.fbs.slc.ejb-ipc:2.3.20" level="project" />
   </component>
 </module>
