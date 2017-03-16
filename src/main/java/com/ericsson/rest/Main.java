@@ -1,14 +1,12 @@
-package com.tornyak.rest;
+package com.ericsson.rest;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.util.Optional;
-import java.util.Properties;
 import java.util.logging.Logger;
 
 /**
@@ -30,7 +28,7 @@ public class Main {
         HOST = Optional.ofNullable(System.getenv("HOSTNAME"));
         PORT = Optional.ofNullable(System.getenv("PORT"));
         PATH = "sscws";
-        BASE_URI = PROTOCOL + HOST.orElse("localhost") + ":" + PORT.orElse("8080") + "/" + PATH + "/";
+        BASE_URI = PROTOCOL + HOST.orElse("localhost") + ":" + PORT.orElse("33333") + "/" + PATH + "/";
     }
 
     /**
