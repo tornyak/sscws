@@ -1,12 +1,14 @@
 package com.ericsson.rest;
 
+import com.ericsson.sap.connection.SapServerConnectionFactory;
+import com.ericsson.sap.sscws.SscwsSapServerConnectionFactory;
+import com.sap.engine.services.jmsconnector.container.utils.Strings;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 /**
@@ -19,16 +21,18 @@ public class Main {
     // Base URI the Grizzly HTTP server will listen on
     public static final String BASE_URI;
     public static final String PROTOCOL;
-    public static final Optional<String> HOST;
+    public static final String HOST;
     public static final String PATH;
-    public static final Optional<String> PORT;
+    public static final String PORT;
 
     static {
+        String host = System.getenv("HOSTNAME");
+        String port = System.getenv("PORT");
         PROTOCOL = "http://";
-        HOST = Optional.ofNullable(System.getenv("HOSTNAME"));
-        PORT = Optional.ofNullable(System.getenv("PORT"));
+        HOST = Strings.isEmpty(host) ? "localhost" : host;
+        PORT = Strings.isEmpty(port) ? "33333" : port;
         PATH = "sscws";
-        BASE_URI = PROTOCOL + HOST.orElse("localhost") + ":" + PORT.orElse("33333") + "/" + PATH + "/";
+        BASE_URI = PROTOCOL + HOST + ":" + PORT + "/" + PATH + "/";
     }
 
     /**
@@ -39,7 +43,9 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in com.example.rest package
-        final ResourceConfig rc = new ResourceConfig().packages("com.tornyak.rest");
+        final SapServerConnectionFactory sapFactory =
+                new SscwsSapServerConnectionFactory();
+        final ResourceConfig rc = new ResourceConfig().register(new DataForwarder(sapFactory));
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI

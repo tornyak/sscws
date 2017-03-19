@@ -1,5 +1,7 @@
 package com.ericsson.rest;
 
+import com.ericsson.sap.connection.SapServerConnectionFactory;
+import com.ericsson.sap.stub.StubSapServerConnectionFactory;
 import org.glassfish.jersey.logging.LoggingFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
@@ -24,10 +26,11 @@ public class DataForwarderTest extends JerseyTest {
     protected Application configure() {
         enable(TestProperties.LOG_TRAFFIC);
         enable(TestProperties.DUMP_ENTITY);
-        return new ResourceConfig().packages("com.tornyak").property(LoggingFeature.LOGGING_FEATURE_LOGGER_LEVEL_SERVER, "INFO");
+        SapServerConnectionFactory sapFactory = new StubSapServerConnectionFactory();
+        return new ResourceConfig().registerInstances(new DataForwarder(sapFactory)).
+                property(LoggingFeature.LOGGING_FEATURE_LOGGER_LEVEL_SERVER, "INFO");
     }
 
-    @Ignore
     @Test
     public void testConfigure() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
@@ -43,7 +46,6 @@ public class DataForwarderTest extends JerseyTest {
     /**
      * Test production environment
      */
-    @Ignore
     @Test
     public void configureProduction() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
